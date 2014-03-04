@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imgs/world-map.png</file>
+        <file>imgs/img-world-map.png</file>
+        <file>imgs/map-pin-md.png</file>
+    </qresource>
+</RCC>
