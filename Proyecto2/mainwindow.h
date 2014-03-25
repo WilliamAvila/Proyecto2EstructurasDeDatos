@@ -15,6 +15,7 @@
 #include <QPoint>
 #include <string.h>
 #include <iostream>
+
 #include <QList>
 using namespace std;
 namespace Ui {
@@ -36,7 +37,9 @@ public:
      TiXmlDocument doc;
      int pinX;
      int pinY;
+     void showPoints();
 
+     bool ClickPoint(QMouseEvent *ev);
 
 
 
@@ -46,8 +49,10 @@ private:
 protected:
     void paintEvent(QPaintEvent *);
     void mousePressEvent(QMouseEvent *);
+
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 };
 
 #endif // MAINWINDOW_H

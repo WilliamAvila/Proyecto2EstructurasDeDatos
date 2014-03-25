@@ -5,6 +5,7 @@ UserAdmin::UserAdmin(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::UserAdmin)
 {
+
     ui->setupUi(this);
 }
 
@@ -15,8 +16,8 @@ UserAdmin::~UserAdmin()
 
 void UserAdmin::on_pushButton_2_clicked()
 {
-    this->close();
-    m.show();
+    //this->close();
+    la.show();
 
 
 
@@ -24,7 +25,7 @@ void UserAdmin::on_pushButton_2_clicked()
 
 void UserAdmin::on_pushButton_clicked()
 {
-    this->close();
+   //this->close();
     wu.show();
 
 }

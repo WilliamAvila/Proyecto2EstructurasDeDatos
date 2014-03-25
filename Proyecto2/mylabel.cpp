@@ -8,40 +8,79 @@ myLabel::myLabel(QWidget *parent) :
 
 void myLabel::paintEvent(QPaintEvent *)
 {
-    doc= TiXmlDocument("Mis Vuelos.xml") ;
+        doc= TiXmlDocument("Mis Vuelos.xml") ;
+        con= TiXmlDocument("Mis Conexiones.xml") ;
 
-    QPainter painter(this);
+        QPainter painter(this);
 
-  /*  painter.drawLine(10,10,100,100);
-   painter.drawEllipse(100,100,50,50);*/
 
-   doc.LoadFile();
+        doc.LoadFile();
+        con.LoadFile();
 
-  TiXmlNode *patr=doc.FirstChild();
 
-int h,w;
-TiXmlAttribute *atrW =patr->ToElement()->FirstAttribute();
-TiXmlAttribute *atrH =patr->ToElement()->LastAttribute();
+         TiXmlNode *patrC=con.FirstChild();
 
-atrW->Next()->QueryIntValue(&w);
-atrH->QueryIntValue(&h);
 
-while(patr){
-   int x,y;
-   TiXmlAttribute *atrX =patr->ToElement()->FirstAttribute();
-   TiXmlAttribute *atrY =patr->ToElement()->LastAttribute();
+        while(patrC){
+            int x,y , x1,y1;
 
-   atrX->Next()->QueryIntValue(&x);
-   cout<<x<<endl;
+            TiXmlAttribute *origin =patrC->ToElement()->FirstAttribute();
 
-   atrY->QueryIntValue(&y);
-   cout<<y<<endl;
-     painter.drawLine(x+10,y+25,w+10,h+25);
 
-   patr=patr->NextSibling();
-}
+            TiXmlAttribute *dest =origin->Next();
 
-painter.drawEllipse(w+10-25,h+25-30,50,50);
+
+
+
+
+             TiXmlNode *patr=doc.FirstChild();
+                while(patr){
+                     string val1=origin->Value();
+                     string val2=patr->Value();
+                     string val3=dest->Value();
+
+
+                    if(val1==val2){
+                        TiXmlAttribute *atrX =patr->ToElement()->FirstAttribute();
+                        TiXmlAttribute *atrY =patr->ToElement()->LastAttribute();
+
+                        atrX->Next()->QueryIntValue(&x);
+
+
+
+
+                        atrY->QueryIntValue(&y);
+
+                    }
+
+                    if(val3==val2){
+                        TiXmlAttribute *atrX1 =patr->ToElement()->FirstAttribute();
+                        TiXmlAttribute *atrY1 =patr->ToElement()->LastAttribute();
+
+                        atrX1->Next()->QueryIntValue(&x1);
+
+
+                        atrY1->QueryIntValue(&y1);
+
+
+                    }
+
+                    patr=patr->NextSibling();
+                }
+
+                /*cout<<x<<endl;
+                cout<<y<<endl;
+                cout<<x1<<endl;
+                cout<<y1<<endl;*/
+
+             painter.drawLine(x-20,y-5,x1-20,y1-5);
+
+           patrC=patrC->NextSibling();
+        }
+
+
+//        painter.drawEllipse(0,0,50,50);
+//        painter.drawLine(0,0,50,50);
 }
 
 void myLabel::DrawLabel(QPaintEvent *)
@@ -69,4 +108,11 @@ void myLabel::mousePressEvent(QMouseEvent *ev)
     lb->setScaledContents(true);
     lb->raise();
     lb->show();*/
+}
+
+void myLabel::mouseMoveEvent(QMouseEvent *ev)
+{   this->x=ev->x();
+    this->y=ev->y();
+
+    emit MousePos();
 }

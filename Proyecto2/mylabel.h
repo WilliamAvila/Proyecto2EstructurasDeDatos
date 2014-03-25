@@ -23,8 +23,10 @@ public:
     void setListQPoint(QList <QPoint> pts);
     QPainter *painter;
     TiXmlDocument doc;
+    TiXmlDocument con;
+    int x,y;
 signals:
-
+    void MousePos();
 public slots:
 
 
@@ -32,6 +34,10 @@ protected:
     void paintEvent(QPaintEvent *);
     void DrawLabel(QPaintEvent *);
     void mousePressEvent(QMouseEvent *);
+    void mouseMoveEvent(QMouseEvent *);
+
+
+
 
  private:
     QLabel *label;

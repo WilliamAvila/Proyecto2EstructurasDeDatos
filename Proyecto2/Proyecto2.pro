@@ -22,7 +22,16 @@ SOURCES += main.cpp\
     TinyXml/tinyxmlerror.cpp \
     TinyXml/tinyxmlparser.cpp \
     dialogerror.cpp \
-    dialogsucces.cpp
+    dialogsucces.cpp \
+    loginadmin.cpp \
+    adminmenu.cpp \
+    grafo.cpp \
+    airport.cpp \
+    connection.cpp \
+    createconnection.cpp \
+    deleteairport.cpp \
+    deleteconnection.cpp \
+    dijkstra.cpp
 
 HEADERS  += mainwindow.h \
     mylabel.h \
@@ -31,13 +40,27 @@ HEADERS  += mainwindow.h \
     TinyXml/tinystr.h \
     TinyXml/tinyxml.h \
     dialogerror.h \
-    dialogsucces.h
+    dialogsucces.h \
+    loginadmin.h \
+    adminmenu.h \
+    grafo.h \
+    airport.h \
+    connection.h \
+    createconnection.h \
+    deleteairport.h \
+    deleteconnection.h \
+    dijkstra.h
 
 FORMS    += mainwindow.ui \
     useradmin.ui \
     windowuser.ui \
     dialogerror.ui \
-    dialogsucces.ui
+    dialogsucces.ui \
+    loginadmin.ui \
+    adminmenu.ui \
+    createconnection.ui \
+    deleteairport.ui \
+    deleteconnection.ui
 
 RESOURCES += \
     Resources.qrc

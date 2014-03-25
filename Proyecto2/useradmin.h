@@ -3,6 +3,8 @@
 #include <mainwindow.h>
 #include <QMainWindow>
 #include <windowuser.h>
+#include <loginadmin.h>
+
 
 namespace Ui {
 class UserAdmin;
@@ -14,8 +16,9 @@ class UserAdmin : public QMainWindow
 
 public:
     explicit UserAdmin(QWidget *parent = 0);
-        MainWindow m;
+
        WindowUser wu;
+      LoginAdmin la;
     ~UserAdmin();
 
 private slots:
